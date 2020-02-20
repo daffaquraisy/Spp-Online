@@ -37,4 +37,5 @@ Route::get('/ajax/spps/search_tahun', 'StudentController@ajaxSearchTahun');
 Route::get('/ajax/spps/search_nominal', 'StudentController@ajaxSearchNominal');
 Route::resource('/students', 'StudentController');
 
-Route::resource('/pembayaran', 'OrderController');
+Route::get('/ajax/orders/search_nama', 'OrderController@ajaxSearchName');
+Route::resource('/orders', 'OrderController');

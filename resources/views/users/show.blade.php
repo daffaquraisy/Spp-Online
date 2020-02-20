@@ -13,7 +13,7 @@
             <br>
 
             <b>Nama Petugas:</b> <br>
-            {{$user->nama_petugas}}
+            {{$user->nama}}
 
             <br>
             <br>

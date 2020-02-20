@@ -42,7 +42,7 @@
     <thead>
         <tr>
             <th><b>Username</b></th>
-            <th><b>Nama Petugas</b></th>
+            <th><b>Nama</b></th>
             <th><b>Level</b></th>
             <th><b>Action</b></th>
         </tr>
@@ -52,7 +52,7 @@
         @foreach($users as $user)
         <tr>
             <td>{{$user->username}}</td>
-            <td>{{$user->nama_petugas}}</td>
+            <td>{{$user->nama}}</td>
 
             <td>
                 @if($user->level == "ADMIN")

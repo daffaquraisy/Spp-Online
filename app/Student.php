@@ -19,8 +19,8 @@ class Student extends Model
         return $this->belongsTo('App\Classroom', 'id_kelas');
     }
 
-    public function orders()
+    public function users()
     {
-        return $this->hasMany('App\Order');
+        return $this->belongsTo('App\User');
     }
 }

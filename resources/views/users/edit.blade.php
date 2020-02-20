@@ -21,9 +21,9 @@
         </div>
         <br>
 
-        <label for="nama_petugas">Nama petugas</label>
-        <input value="{{$user->nama_petugas}}" class="form-control" placeholder="Nama petugas" type="text"
-            name="nama_petugas" id="nama_petugas" />
+        <label for="nama">Nama</label>
+        <input value="{{$user->nama}}" class="form-control" placeholder="Nama petugas" type="text"
+            name="nama" id="nama" />
         <br>
 
         <label for="">Level</label>

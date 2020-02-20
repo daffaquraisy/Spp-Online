@@ -27,13 +27,13 @@
 
         <br>
 
-        <label for="nama_petugas">Nama Petugas</label>
+        <label for="nama">Nama</label>
 
-        <input value="{{old('nama_petugas')}}" class="form-control {{$errors->first('nama_petugas') ? "is-invalid": ""}}"
-            placeholder="Nama petugas" type="text" name="nama_petugas" id="nama_petugas">
+        <input value="{{old('nama')}}" class="form-control {{$errors->first('nama') ? "is-invalid": ""}}"
+            placeholder="Nama petugas" type="text" name="nama" id="nama">
 
         <div class="invalid-feedback">
-            {{$errors->first('nama_petugas')}}
+            {{$errors->first('nama')}}
         </div>
         <br>
 

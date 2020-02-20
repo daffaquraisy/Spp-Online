@@ -48,7 +48,7 @@ class UserController extends Controller
     {
         \Validator::make($request->all(), [
             'username' => 'required|min:5',
-            'nama_petugas' => 'required|min:10',
+            'nama' => 'required|min:10',
             'level' => 'required',
             'password' => 'required',
             'password_confirmation' => 'required|same:password'
@@ -56,7 +56,7 @@ class UserController extends Controller
 
         $new_user = new \App\User;
         $new_user->username = $request->get('username');
-        $new_user->nama_petugas = $request->get('nama_petugas');
+        $new_user->nama = $request->get('nama');
         $arrayTostring = implode(',', $request->input('level'));
         $new_user['level'] = $arrayTostring;
         $new_user->password = Hash::make($request->get('password'));
@@ -100,13 +100,13 @@ class UserController extends Controller
     {
         \Validator::make($request->all(), [
             'username' => 'required|min:5',
-            'nama_petugas' => 'required|min:10',
+            'nama' => 'required|min:10',
             'level' => 'required'
         ])->validate();
 
         $user = \App\User::findOrFail($id);
         $user->username = $request->get('username');
-        $user->nama_petugas = $request->get('nama_petugas');
+        $user->nama = $request->get('nama');
         $arrayTostring = implode(',', $request->input('level'));
         $user['level'] = $arrayTostring;
 

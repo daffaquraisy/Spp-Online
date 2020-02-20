@@ -14,7 +14,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = \App\Order::with('users')->paginate(10);
+        $orders = \App\Order::with('users')->with('students')->paginate(10);
         return view('orders.index', ['orders' => $orders]);
     }
 
@@ -111,5 +111,14 @@ class OrderController extends Controller
         $order = \App\Order::findOrFail($id);
         $order->delete();
         return redirect()->route('orders.index')->with('status', 'Invoice berhasil dihapus');
+    }
+
+    public function ajaxSearchName(Request $request)
+    {
+        $keyword = $request->get('q');
+
+        $students = \App\Student::where("nama", "LIKE", "%$keyword%")->get();
+
+        return $students;
     }
 }
