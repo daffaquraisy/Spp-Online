@@ -27,8 +27,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/users', 'UserController');
 
-
-
 Route::resource('/classrooms', 'ClassroomController');
 
 Route::resource('/spps', 'SppController');
@@ -38,3 +36,5 @@ Route::get('/ajax/classrooms/kompetensi_name', 'StudentController@ajaxSearchKomp
 Route::get('/ajax/spps/search_tahun', 'StudentController@ajaxSearchTahun');
 Route::get('/ajax/spps/search_nominal', 'StudentController@ajaxSearchNominal');
 Route::resource('/students', 'StudentController');
+
+Route::resource('/pembayaran', 'OrderController');

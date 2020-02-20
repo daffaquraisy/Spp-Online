@@ -17,25 +17,12 @@ class UserController extends Controller
         $users = \App\User::paginate(10);
 
         $level = $request->get('level');
+        $keyword = $request->get('keyword') ? $request->get('keyword') : '';
 
         if ($level) {
-            $users = \App\User::where('level', $level)->paginate(10);
+            $users = \App\User::where("level", "LIKE", "%$keyword%")->where('level', strtoupper($level))->paginate(10);
         } else {
-            $users = \App\User::paginate(10);
-        }
-
-
-        $filterKeyword = $request->get('keyword');
-
-        if ($filterKeyword) {
-            if ($level) {
-                $users = \App\User::where('username', 'LIKE', "%$filterKeyword%")
-                    ->where('level', $level)
-                    ->paginate(10);
-            } else {
-                $users = \App\User::where('username', 'LIKE', "%$filterKeyword%")
-                    ->paginate(10);
-            }
+            $users = \App\User::where("level", "LIKE", "%$keyword%")->paginate(10);
         }
 
         return view('users.index', ['users' => $users]);

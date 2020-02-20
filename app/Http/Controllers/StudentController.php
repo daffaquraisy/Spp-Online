@@ -94,13 +94,13 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // \Validator::make($request->all(), [
-        //     'nisn' => 'required|unique',
-        //     'nis' => 'required|unique',
-        //     'nama' => 'required',
-        //     'alamat' => 'required',
-        //     'no_telp' => 'required|numeric|digits_between:11,13'
-        // ])->validate();
+        \Validator::make($request->all(), [
+            'nisn' => 'required|unique',
+            'nis' => 'required|unique',
+            'nama' => 'required',
+            'alamat' => 'required',
+            'no_telp' => 'required|numeric|digits_between:11,13'
+        ])->validate();
 
         $student = \App\Student::findOrFail($id);
         $student->nisn = $request->get('nisn');

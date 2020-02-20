@@ -6,16 +6,22 @@
    <h1 class="p-0">Daftar Petugas</h1>
 
    
-<form action="{{route('users.index')}}">
+   <form action="{{route('users.index')}}">
     <div class="row">
-        <div class="col-md-4">
-            <input value="{{Request::get('keyword')}}" name="keyword" class="form-control" type="text"
-                placeholder="Masukan username untuk filter..." />
+        <div class="col-md-5">
+            <input value="{{Request::get('username')}}" name="username" type="text" class="form-control"
+                placeholder="Search by buyer name">
         </div>
-        <div class="col-md-8">
-            
-                <input type="submit" value="Filter" class="btn btn-primary btn-sm mt-1">
-            
+        <div class="col-md-2">
+            <select name="level" class="form-control" id="level">
+                <option value="">ANY</option>
+                <option {{Request::get('level') == "ADMIN" ? "selected" : ""}} value="ADMIN">ADMIN</option>
+                <option {{Request::get('level') == "PETUGAS" ? "selected" : ""}} value="PETUGAS">PETUGAS</option>
+                <option {{Request::get('level') == "SISWA" ? "selected" : ""}} value="SISWA">SISWA</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <input type="submit" value="Filter" class="btn btn-primary">
         </div>
     </div>
 </form>
@@ -50,11 +56,15 @@
 
             <td>
                 @if($user->level == "ADMIN")
-                <span class="badge badge-success">
+                <span class="badge btn-success">
+                    {{$user->level}}
+                </span>
+                @elseif($user->level == 'PETUGAS')
+                <span class="badge btn-info">
                     {{$user->level}}
                 </span>
                 @else
-                <span class="badge badge-warning">
+                <span class="badge btn-warning">
                     {{$user->level}}
                 </span>
                 @endif

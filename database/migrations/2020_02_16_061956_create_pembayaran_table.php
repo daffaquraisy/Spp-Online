@@ -17,10 +17,11 @@ class CreatePembayaranTable extends Migration
             $table->bigIncrements('id');
             $table->date('waktu_pembayaran');
             $table->bigInteger('jumlah');
-            $table->bigInteger('id_petugas')->unsigned()->nullable();
+            $table->enum('status', ['LUNAS', 'PROSES']);
             $table->bigInteger('id_siswa')->unsigned()->nullable();
-            $table->foreign('id_petugas')->references('id')->on('users');
             $table->foreign('id_siswa')->references('id')->on('siswa');
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
