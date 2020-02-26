@@ -20,7 +20,7 @@
 
   <!-- Custom styles for this template-->
   <link href="{{asset('template/css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+  
 </head>
 
 <body id="page-top">
@@ -216,6 +216,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
   @yield('footer-scripts')
+  @yield('snap-js')
 
 
 </body>

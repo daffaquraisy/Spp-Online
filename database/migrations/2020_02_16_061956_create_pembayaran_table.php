@@ -15,9 +15,9 @@ class CreatePembayaranTable extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('waktu_pembayaran');
-            $table->bigInteger('jumlah');
-            $table->enum('status', ['LUNAS', 'PROSES']);
+            $table->date('waktu_pembayaran')->nullable();
+            $table->bigInteger('amount')->nullable();
+            $table->string('status')->default('PENDING');
             $table->bigInteger('id_siswa')->unsigned()->nullable();
             $table->foreign('id_siswa')->references('id')->on('siswa');
             $table->bigInteger('user_id')->unsigned()->nullable();
