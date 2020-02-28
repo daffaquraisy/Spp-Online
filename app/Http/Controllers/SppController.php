@@ -11,6 +11,16 @@ class SppController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+
+            if (Gate::allows('manage-spp')) return $next($request);
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
+    }
+
     public function index()
     {
         $spps = \App\Spp::paginate(10);

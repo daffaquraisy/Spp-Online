@@ -143,7 +143,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('orders.create');
+        // return view('orders.create');
     }
 
     /**
@@ -152,21 +152,21 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function store(Request $request)
-    // {
-    //     \Validator::make($request->all(), [
-    //         'amount' => 'required'
-    //     ])->validate();
+    public function store(Request $request)
+    {
+        // \Validator::make($request->all(), [
+        //     'amount' => 'required'
+        // ])->validate();
 
-    //     $new_order = new \App\Order;
-    //     $new_order->amount = $request->get('amount');
-    //     $new_order->waktu_pembayaran = Carbon::now();
-    //     $new_order->user_id = \Auth::user()->id;
-    //     $new_order->id_siswa = $request->get('id_siswa');
+        // $new_order = new \App\Order;
+        // $new_order->amount = $request->get('amount');
+        // $new_order->waktu_pembayaran = Carbon::now();
+        // $new_order->user_id = \Auth::user()->id;
+        // $new_order->id_siswa = $request->get('id_siswa');
 
-    //     $new_order->save();
-    //     return redirect()->route('orders.create')->with('status', 'Invoice berhasil dibuat');
-    // }
+        // $new_order->save();
+        // return redirect()->route('orders.create')->with('status', 'Invoice berhasil dibuat');
+    }
 
     /**
      * Display the specified resource.
@@ -187,9 +187,9 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        $order = \App\Order::findOrFail($id);
-        $students = \App\Student::pluck('nama', 'id')->toArray();
-        return view('oders.edit')->with(compact('order', 'students'));
+        // $order = \App\Order::findOrFail($id);
+        // $students = \App\Student::pluck('nama', 'id')->toArray();
+        // return view('oders.edit')->with(compact('order', 'students'));
     }
 
     /**
@@ -201,21 +201,21 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        \Validator::make($request->all(), [
-            'status' => 'required',
-            'amount' => 'required',
-        ])->validate();
+        // \Validator::make($request->all(), [
+        //     'status' => 'required',
+        //     'amount' => 'required',
+        // ])->validate();
 
-        $order = \App\Order::findOrFail($id);
-        $order->amount = $request->get('amount');
-        $order->status = $request->get('status');
-        $order->waktu_pembayaran = Carbon::now();
-        $order->user_id = \Auth::user()->id;
-        $order->id_siswa = $request->get('id_siswa');
+        // $order = \App\Order::findOrFail($id);
+        // $order->amount = $request->get('amount');
+        // $order->status = $request->get('status');
+        // $order->waktu_pembayaran = Carbon::now();
+        // $order->user_id = \Auth::user()->id;
+        // $order->id_siswa = $request->get('id_siswa');
 
-        $order->save();
+        // $order->save();
 
-        return redirect()->route('orders.index')->with('status', 'Invoice berhasil diupdate');
+        // return redirect()->route('orders.index')->with('status', 'Invoice berhasil diupdate');
     }
 
     /**

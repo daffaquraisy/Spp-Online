@@ -11,7 +11,20 @@
     <form enctype="multipart/form-data" class="bg-white shadow-sm p-3" action="{{route('users.update', [$user->id])}}"
         method="POST">
         @csrf
+
         <input type="hidden" value="PUT" name="_method">
+
+        
+        <label for="email">Email</label>
+        <input value="{{old('email') ? old('email') : $user->email}}"
+            class="form-control {{$errors->first('email') ? "is-invalid" : ""}}" placeholder="user@email.com" type="text"
+            name="email" id="email" />
+        <div class="invalid-feedback">
+            {{$errors->first('email')}}
+        </div>
+        <br>
+
+
         <label for="username">Username</label>
         <input value="{{old('username') ? old('username') : $user->username}}"
             class="form-control {{$errors->first('username') ? "is-invalid" : ""}}" placeholder="Full username" type="text"
@@ -21,9 +34,9 @@
         </div>
         <br>
 
-        <label for="nama">Nama</label>
-        <input value="{{$user->nama}}" class="form-control" placeholder="Nama petugas" type="text"
-            name="nama" id="nama" />
+        <label for="name">Nama</label>
+        <input value="{{$user->name}}" class="form-control" placeholder="Nama petugas" type="text"
+            name="name" id="name" />
         <br>
 
         <label for="">Level</label>

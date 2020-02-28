@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 
-    <h1>Invoice</h1>
+    <h1>Pembayaran</h1>
 
 
 
@@ -144,7 +144,7 @@
             _method: 'POST',
             _token: '{{ csrf_token() }}',
             amount: $('input#amount').val(),
-            // id_siswa: $('select#id_siswa').val(),
+            id_siswa: $('select2#id_siswa').val(),
             type: $('select#type').val(),
 
         },

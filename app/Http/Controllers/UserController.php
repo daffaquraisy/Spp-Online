@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -12,6 +13,16 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+
+            if (Gate::allows('manage-users')) return $next($request);
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
+    }
+
     public function index(Request $request)
     {
         $users = \App\User::paginate(10);
@@ -47,18 +58,19 @@ class UserController extends Controller
     public function store(Request $request)
     {
         \Validator::make($request->all(), [
+            'email' => 'required|email',
             'username' => 'required|min:5',
-            'nama' => 'required|min:10',
+            'name' => 'required|min:10',
             'level' => 'required',
             'password' => 'required',
             'password_confirmation' => 'required|same:password'
         ])->validate();
 
         $new_user = new \App\User;
+        $new_user->email = $request->get('email');
         $new_user->username = $request->get('username');
-        $new_user->nama = $request->get('nama');
-        $arrayTostring = implode(',', $request->input('level'));
-        $new_user['level'] = $arrayTostring;
+        $new_user->name = $request->get('name');
+        $new_user->level = json_encode($request->get('level'));
         $new_user->password = Hash::make($request->get('password'));
 
         $new_user->save();
@@ -100,15 +112,16 @@ class UserController extends Controller
     {
         \Validator::make($request->all(), [
             'username' => 'required|min:5',
-            'nama' => 'required|min:10',
+            'name' => 'required|min:10',
             'level' => 'required'
         ])->validate();
 
         $user = \App\User::findOrFail($id);
+        $user->email = $request->get('email');
         $user->username = $request->get('username');
-        $user->nama = $request->get('nama');
-        $arrayTostring = implode(',', $request->input('level'));
-        $user['level'] = $arrayTostring;
+        $user->name = $request->get('name');
+        $user->level = json_encode($request->get('level'));
+
 
         $user->save();
         return redirect()->route('users.index', [$id])->with('level', 'Data petugas berhasil diubah');

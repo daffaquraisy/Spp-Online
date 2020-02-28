@@ -43,8 +43,10 @@
 
   <!-- Heading -->
   <div class="sidebar-heading">
-    Data Master
+    Menu
   </div>
+
+  @can('manage-users', $user ?? '')
 
   <li class="nav-item">
   <a class="nav-link" href="{{route('users.index')}}">
@@ -69,6 +71,7 @@
       <i class="fas fa-fw fa-graduation-cap"></i>
       <span>Manage Siswa</span></a>
   </li>
+  @endcan
 
   <li class="nav-item">
     <a class="nav-link" href="{{route('orders.index')}}">

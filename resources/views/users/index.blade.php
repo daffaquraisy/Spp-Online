@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-md-5">
             <input value="{{Request::get('username')}}" name="username" type="text" class="form-control"
-                placeholder="Search by buyer name">
+                placeholder="Search by username">
         </div>
         <div class="col-md-2">
             <select name="level" class="form-control" id="level">
@@ -41,6 +41,7 @@
 <table class="table table-bordered">
     <thead>
         <tr>
+            <th><b>Email</b></th>
             <th><b>Username</b></th>
             <th><b>Nama</b></th>
             <th><b>Level</b></th>
@@ -51,23 +52,17 @@
 
         @foreach($users as $user)
         <tr>
+            <td>{{$user->email}}</td>
             <td>{{$user->username}}</td>
-            <td>{{$user->nama}}</td>
+            <td>{{$user->name}}</td>
 
             <td>
-                @if($user->level == "ADMIN")
-                <span class="badge btn-success">
-                    {{$user->level}}
-                </span>
-                @elseif($user->level == 'PETUGAS')
-                <span class="badge btn-info">
-                    {{$user->level}}
-                </span>
-                @else
-                <span class="badge btn-warning">
-                    {{$user->level}}
-                </span>
-                @endif
+                @foreach (json_decode($user->level) as $l)
+                
+                &middot; {{$l}} 
+                
+                <br>
+                @endforeach
             </td>
             
             <td>

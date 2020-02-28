@@ -16,6 +16,17 @@
 
         @csrf
 
+        <label for="email">Email</label>
+
+        <input value="{{old('email')}}" class="form-control {{$errors->first('email') ? "is-invalid": ""}}"
+            placeholder="user@email.com" type="email" name="email" id="email" />
+
+        <div class="invalid-feedback">
+            {{$errors->first('email')}}
+        </div>
+
+        <br>
+
         <label for="username">Username</label>
 
         <input value="{{old('username')}}" class="form-control {{$errors->first('username') ? "is-invalid": ""}}"
@@ -27,13 +38,13 @@
 
         <br>
 
-        <label for="nama">Nama</label>
+        <label for="name">Nama</label>
 
-        <input value="{{old('nama')}}" class="form-control {{$errors->first('nama') ? "is-invalid": ""}}"
-            placeholder="Nama petugas" type="text" name="nama" id="nama">
+        <input value="{{old('name')}}" class="form-control {{$errors->first('name') ? "is-invalid": ""}}"
+            placeholder="Nama petugas" type="text" name="name" id="name">
 
         <div class="invalid-feedback">
-            {{$errors->first('nama')}}
+            {{$errors->first('name')}}
         </div>
         <br>
 
