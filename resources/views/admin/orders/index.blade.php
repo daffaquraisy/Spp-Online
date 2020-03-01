@@ -24,7 +24,6 @@
                     <th><b>Waktu Pembayaran</b></th>
                     <th><b>Jumlah</b></th>
                     <th><br>Status</th>
-                    <th><b>Action</b></th>
                 </tr>
             </thead>
             <tbody>
@@ -47,7 +46,7 @@
             <tfoot>
                 <tr>
                     <td colspan="10">
-                        {{-- {{$errors->appends(Request::all())->links()}} --}}
+                        {{$orders->appends(Request::all())->links()}}
                     </td>
                 </tr>
             </tfoot>

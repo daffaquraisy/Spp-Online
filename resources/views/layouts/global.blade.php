@@ -73,7 +73,7 @@
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" href="{{route('admin.orders.index')}}">
+    <a class="nav-link" href="{{route('admin.payment')}}">
       <i class="fas fa-fw fa-file-invoice"></i>
       <span>Manage Pembayaran</span></a>
   </li>

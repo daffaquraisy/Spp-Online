@@ -93,7 +93,7 @@
             <tfoot>
                 <tr>
                     <td colspan="10">
-                        {{-- {{$errors->appends(Request::all())->links()}} --}}
+                        {{$orders->appends(Request::all())->links()}}
                     </td>
                 </tr>
             </tfoot>
