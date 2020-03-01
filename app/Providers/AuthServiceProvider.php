@@ -40,5 +40,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('manage-spp', function ($user) {
             return count(array_intersect(["ADMIN", "PETUGAS"], json_decode($user->level)));
         });
+
+        Gate::define('manage-orders', function ($user) {
+            return count(array_intersect(["ADMIN", "PETUGAS"], json_decode($user->level)));
+        });
     }
 }

@@ -71,12 +71,18 @@
       <i class="fas fa-fw fa-graduation-cap"></i>
       <span>Manage Siswa</span></a>
   </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="{{route('admin.orders.index')}}">
+      <i class="fas fa-fw fa-file-invoice"></i>
+      <span>Manage Pembayaran</span></a>
+  </li>
   @endcan
 
   <li class="nav-item">
     <a class="nav-link" href="{{route('orders.index')}}">
       <i class="fas fa-fw fa-file-invoice"></i>
-      <span>Manage Pembayaran</span></a>
+      <span>Pembayaran</span></a>
   </li>
 
   <li class="nav-item">

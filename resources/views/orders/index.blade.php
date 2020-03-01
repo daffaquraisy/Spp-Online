@@ -1,5 +1,5 @@
 @extends('layouts.global')
-@section('title') Inovice list @endsection
+@section('title') Pembayaran list @endsection
 @section('content')
 <div class="row">
 
@@ -131,10 +131,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 <script src="{{ !config('services.midtrans.isProduction') ? 'https://app.sandbox.midtrans.com/snap/snap.js' : 'https://app.midtrans.com/snap/snap.js' }}" data-client-key="{{ config('services.midtrans.clientKey') }}"></script>
-<script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="{{ !config('services.midtrans.isProduction') ? 'https://app.sandbox.midtrans.com/snap/snap.js' : 'https://app.midtrans.com/snap/snap.js' }}" data-client-key="{{ config('services.midtrans.clientKey') }}"></script>
     <script>
     function submitForm() {
@@ -144,7 +141,7 @@
             _method: 'POST',
             _token: '{{ csrf_token() }}',
             amount: $('input#amount').val(),
-            id_siswa: $('select2#id_siswa').val(),
+            id_siswa: $('select#nama').val(),
             type: $('select#type').val(),
 
         },

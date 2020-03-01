@@ -38,7 +38,7 @@ class OrderController extends Controller
                 'waktu_pembayaran' => Carbon::now(),
                 'user_id' => \Auth::user()->name,
                 'amount' => floatval($this->request->amount),
-                'id_siswa' => $this->request->id_siswa,
+                'id_siswa' => implode(',', $this->request->input('id_siswa')),
                 'type' => $this->request->type
             ]);
 
