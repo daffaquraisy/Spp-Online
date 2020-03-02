@@ -51,7 +51,7 @@
   <li class="nav-item">
   <a class="nav-link" href="{{route('users.index')}}">
       <i class="fas fa-fw fa-users"></i>
-      <span>Manage Petugas</span></a>
+      <span>Manage Users</span></a>
   </li>
 
   <li class="nav-item">
