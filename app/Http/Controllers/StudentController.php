@@ -6,6 +6,7 @@ use App\Classroom;
 use App\Spp;
 use App\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class StudentController extends Controller
 {

@@ -66,10 +66,10 @@
             <thead>
                 <tr>
                     <th><b>Nama</b></th>
-                    <th><br>Nisn</th>
+                    <th><b>Nisn</b></th>
                     <th><b>Waktu Pembayaran</b></th>
                     <th><b>Jumlah</b></th>
-                    <th><br>Status</th>
+                    <th><b>Status</b></th>
                     <th><b>Action</b></th>
                 </tr>
             </thead>

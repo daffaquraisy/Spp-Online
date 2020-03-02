@@ -28,6 +28,16 @@ class AdminOrderController extends Controller
         return view('admin.orders.index', ['orders' => $orders]);
     }
 
+    public function generateDocx(Request $request)
+    {
+        // $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        // $section = $phpWord->addSection();
+        // $text = \App\Order::all();
+        // $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+        // $objWriter->save('pembayaran-spp.docx');
+        // return response()->download(public_path('pembayaran-spp.docx'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

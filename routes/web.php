@@ -39,3 +39,4 @@ Route::get('/ajax/orders/search_nama', 'OrderController@ajaxSearchName');
 Route::resource('/orders', 'OrderController');
 
 Route::get('/admin/payment', 'AdminOrderController@index')->name('admin.payment');
+Route::get('/admin/generate', 'AdminOrderController@generateDocx')->name('admin.generate');
