@@ -30,12 +30,12 @@ class AdminOrderController extends Controller
 
     public function generateDocx(Request $request)
     {
-        // $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        // $section = $phpWord->addSection();
-        // $text = \App\Order::all();
-        // $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-        // $objWriter->save('pembayaran-spp.docx');
-        // return response()->download(public_path('pembayaran-spp.docx'));
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $section = $phpWord->addSection();
+        $text = \App\Order::all();
+        $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+        $objWriter->save('pembayaran-spp.docx');
+        return response()->download(public_path('pembayaran-spp.docx'));
     }
 
     /**
