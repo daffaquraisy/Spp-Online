@@ -34,7 +34,7 @@
 
 <div class="row mb-3">
     <div class="col-md-12 text-right">
-        <a href="{{route('users.create')}}" class="btn btn-primary">Tambah petugas</a>
+        <a href="{{route('users.create')}}" class="btn btn-primary">Tambah user</a>
    </div>
 </div>
 

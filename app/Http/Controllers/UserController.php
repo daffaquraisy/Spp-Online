@@ -74,7 +74,7 @@ class UserController extends Controller
         $new_user->password = Hash::make($request->get('password'));
 
         $new_user->save();
-        return redirect()->route('users.index')->with('level', 'Data petugas berhasil di tambahkan');
+        return redirect()->route('users.index')->with('level', 'Data user berhasil di tambahkan');
     }
 
     /**
@@ -124,7 +124,7 @@ class UserController extends Controller
 
 
         $user->save();
-        return redirect()->route('users.index', [$id])->with('level', 'Data petugas berhasil diubah');
+        return redirect()->route('users.index', [$id])->with('level', 'Data user berhasil diubah');
     }
 
     /**
@@ -138,6 +138,6 @@ class UserController extends Controller
         $user = \App\User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('users.index')->with('level', 'Data petugas berhasil dihapus');
+        return redirect()->route('users.index')->with('level', 'Data user berhasil dihapus');
     }
 }
