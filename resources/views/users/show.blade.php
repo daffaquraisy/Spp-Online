@@ -13,13 +13,15 @@
             <br>
 
             <b>Nama Petugas:</b> <br>
-            {{$user->nama}}
+            {{$user->name}}
 
             <br>
             <br>
 
             <b>Level:</b> <br>
-            {{$user->level}}
+            @foreach (json_decode($user->level) as $l)
+            &middot; {{$l}} <br>
+            @endforeach        
         </div>
     </div>
 </div>

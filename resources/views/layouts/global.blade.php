@@ -2,232 +2,268 @@
 <html lang="en">
 
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>SPP @yield('title')</title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <link rel="icon" href="{{asset('assets/img/icon.ico')}}" type="image/x-icon" />
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>SPP @yield('title')</title>
-
-  <!-- Custom fonts for this template-->
-    <link href="{{asset('template/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
+    <!-- Fonts and icons -->
+    <script src="{{asset('assets/js/plugin/webfont/webfont.min.js')}}"></script>
     
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900&display=swap" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
-  <link href="{{asset('template/css/sb-admin-2.min.css')}}" rel="stylesheet">
-  
+    <script>
+        WebFont.load({
+            google: {
+                "families": ["Lato:300,400,700,900"]
+            },
+            custom: {
+                "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular",
+                    "Font Awesome 5 Brands", "simple-line-icons"
+                ],
+                urls: ['../assets/css/fonts.min.css']
+            },
+            active: function () {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/atlantis.min.css')}}">
+
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href="{{asset('assets/css/demo.css')}}">
 </head>
 
-<body id="page-top">
+<body>
+    <div class="wrapper">
+        <div class="main-header">
+            <!-- Logo Header -->
+            <div class="logo-header" data-background-color="blue">
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
-
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-  <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-    <div class="sidebar-brand-icon rotate-n-15">
-      <i class="fas fa-laptop"></i>
-    </div>
-    <div class="sidebar-brand-text mx-3">SPP</div>
-  </a>
-
-  <hr class="sidebar-divider">
-
-  <!-- Heading -->
-  <div class="sidebar-heading">
-    Menu
-  </div>
-
-  @can('manage-users', $user ?? '')
-
-  <li class="nav-item">
-  <a class="nav-link" href="{{route('users.index')}}">
-      <i class="fas fa-fw fa-users"></i>
-      <span>Manage Users</span></a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link" href="{{route('classrooms.index')}}">
-      <i class="fas fa-fw fa-school"></i>
-      <span>Manage Kelas</span></a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link" href="{{route('spps.index')}}">
-      <i class="fas fa-fw fa-list"></i>
-      <span>Manage Spp</span></a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link" href="{{route('students.index')}}">
-      <i class="fas fa-fw fa-graduation-cap"></i>
-      <span>Manage Siswa</span></a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link" href="{{route('admin.payment')}}">
-      <i class="fas fa-fw fa-file-invoice"></i>
-      <span>Manage Pembayaran</span></a>
-  </li>
-  @endcan
-
-  <li class="nav-item">
-    <a class="nav-link" href="{{route('orders.index')}}">
-      <i class="fas fa-fw fa-file-invoice"></i>
-      <span>Pembayaran</span></a>
-  </li>
-
-  <li class="nav-item">
-      <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
-        <i class="fas fa-fw fa-sign-out-alt m-0"></i>
-        <span>Logout</span>
-      </a>
-
-  </li>
-  
-
-  <!-- Divider -->
-  <hr class="sidebar-divider d-none d-md-block">
-
-  <!-- Sidebar Toggler (Sidebar) -->
-  <div class="text-center d-none d-md-inline">
-    <button class="rounded-circle border-0" id="sidebarToggle"></button>
-  </div>
-    </ul>
-    <!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-      <!-- Main Content -->
-      <div id="content">
-
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
-
-          <!-- Topbar Search
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
+                <i class="fas fa-laptop fa-2x text-white"></i>
+                <h3 class="ml-3 mr-3 text-white"><b>SPP Online</b></h3>
+                <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+                    data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="icon-menu"></i>
+                    </span>
                 </button>
-              </div>
+                <div class="nav-toggle">
+                    <button class="btn btn-toggle toggle-sidebar">
+                        <i class="icon-menu"></i>
+                    </button>
+                </div>
             </div>
-          </form> -->
+            <!-- End Logo Header -->
 
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
+            <!-- Navbar Header -->
+            <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
 
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">                
-                  {{Auth::user()->username}}
-                </span>
-              </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" >
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
-
-          </ul>
-
-        </nav>
-        <!-- End of Topbar -->
-
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-            @yield('content')
-
+                <div class="container-fluid">
+                    <div class="collapse" id="search-nav">
+                        <form class="navbar-left navbar-form nav-search mr-md-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button type="submit" class="btn btn-search pr-1">
+                                        <i class="fa fa-search search-icon"></i>
+                                    </button>
+                                </div>
+                                <input type="text" placeholder="Search ..." class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
         </div>
-        <!-- /.container-fluid -->
 
-      </div>
-      <!-- End of Main Content -->
+        <!-- Sidebar -->
+        <div class="sidebar sidebar-style-2">
+            <div class="sidebar-wrapper scrollbar scrollbar-inner">
+                <div class="sidebar-content">
+                    <div class="user">
+                        {{-- <div class="avatar-sm float-left mr-2">
+                            <img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                        </div> --}}
+                        <div class="info">
+                            <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+                                <span>
+                                    {{Auth::user()->name}}
+                                    <span class="user-level">Online</span>
+                                </span>
+                            </a>
+                            <div class="clearfix"></div>
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Uji Kompetensi 2020</span>
-          </div>
+
+                        </div>
+                    </div>
+                    <ul class="nav nav-primary">
+                        {{-- <li class="nav-item active">
+                            <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+                                <i class="fas fa-home"></i>
+                                <p>Dashboard</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="dashboard">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="../demo1/index.html">
+                                            <span class="sub-item">Dashboard 1</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../demo2/index.html">
+                                            <span class="sub-item">Dashboard 2</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> --}}
+
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Menu</h4>
+                        </li>
+                        @can('manage-users', $user ?? '')
+
+                        <li class="nav-item">
+                        <a class="nav-link" href="{{route('users.index')}}">
+                            <i class="fas fa-fw fa-users"></i>
+                            <span>Manage Users</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('classrooms.index')}}">
+                            <i class="fas fa-fw fa-school"></i>
+                            <span>Manage Kelas</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('spps.index')}}">
+                            <i class="fas fa-fw fa-list"></i>
+                            <span>Manage Spp</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('students.index')}}">
+                            <i class="fas fa-fw fa-graduation-cap"></i>
+                            <span>Manage Siswa</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('admin.payment')}}">
+                            <i class="fas fa-fw fa-file-invoice"></i>
+                            <span>Manage Pembayaran</span></a>
+                        </li>
+                        @endcan
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('orders.index')}}">
+                            <i class="fas fa-fw fa-file-invoice"></i>
+                            <span>Pembayaran</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-fw fa-sign-out-alt "></i>
+                                <span>Logout</span>
+                            </a>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
         </div>
-      </footer>
-      <!-- End of Footer -->
+        <!-- End Sidebar -->
 
+        <div class="main-panel mb-5">
+            <div class="content">
+                {{-- <div class="panel-header bg-primary-gradient">
+                    <div class="page-inner py-5">
+                        <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+                            <div>
+                                <h2 class="text-white pb-2 fw-bold">Dashboard</h2>
+                                <h5 class="text-white op-7 mb-2">Hello \Auth::user()->name</h5>
+                            </div>
+
+                        </div>
+                    </div> --}}
+                    
+                <div class="page-inner">
+
+                    
+
+                    @yield('content')
+
+                </div>
+                </div>
+
+
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" type="button" data-dismiss="modal">Cancel</button>
+                        <form action="{{route("logout")}}" method="POST">
+                        @csrf
+                        <button class="btn btn-primary" style="cursor:pointer">Sign Out</button>
+                    </form>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+
+                    <div class="copyright ml-auto">
+                        Copyright © Uji Kompetensi 2020
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
-    <!-- End of Content Wrapper -->
-
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <form action="{{route("logout")}}" method="POST">
-            @csrf
-            <button class="btn btn-primary" style="cursor:pointer">Sign Out</button>
-        </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bootstrap core JavaScript-->
-  <script src="{{asset('template/vendor/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('template/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="{{asset('template/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="{{asset('template/js/sb-admin-2.min.js')}}"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-
-  @yield('footer-scripts')
-  @yield('snap-js')
+    <!--   Core JS Files   -->
+    <script src="{{asset('assets/js/core/jquery.3.2.1.min.js')}}"></script>
+    <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
+    <script src="{{asset('assets/js/core/bootstrap.min.js')}}"></script>
+    {{-- <script src="https://kit.fontawesome.com/20e16e5617.js"></script> --}}
 
 
+    <!-- jQuery UI -->
+    <script src="{{asset('assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js')}}"></script>
+
+    <!-- jQuery Scrollbar -->
+    <script src="{{asset('assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js')}}"></script>
+
+
+    <!-- Atlantis JS -->
+    <script src="{{asset('assets/js/atlantis.min.js')}}"></script>
+
+    <!-- Atlantis DEMO methods, don't include it in your project! -->
+    <script src="{{asset('assets/js/setting-demo.js')}}"></script>
+    <script src="{{asset('assets/js/demo.js')}}"></script>
+
+    @yield('footer-scripts')
+    @yield('snap-js')
 </body>
 
 </html>

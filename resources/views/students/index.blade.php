@@ -21,14 +21,14 @@
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-stripped">
+                    <table class="table table-bordered ">
                         <thead>
                             <tr>
                                 <th><b>Nisn</b></th>
                                 <th><b>Nis</b></th>
                                 <th><b>Nama</b></th>
                                 <th><b>Alamat</b></th>
-                                <th><b>Nama Kelas</b></th>
+                                <th><b>Kelas</b></th>
                                 <th><b>Tahun</b></th>
                                 <th><b>Nominal</b></th>                    
                                 <th><b>No Telepon</b></th>

@@ -31,10 +31,10 @@
                 </div>
     
     
-                <div class="col-md-4">
+                <div class="col-md-4 ml-2">
     
                     <!-- Prepended text-->
-                    <label for="">Amount</label>
+                    <label control-label for="">Amount</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Rp</span>
@@ -45,7 +45,7 @@
                 </div>
 
                 <!-- Select Basic -->
-                <div class="col-md-4 mt-3">
+                <div class="col-md-4">
                 <div class="form-group">
                     <label class="control-label" for="donation_type">Type</label>
                     <div>

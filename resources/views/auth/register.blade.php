@@ -16,7 +16,7 @@
             <div class="col-lg">
               <div class="p-5">
                 <div class="text-center">
-                  <h1 class="h4 text-gray-900 mb-4">Register</h1>
+                  <h1 class="text-gray-900 mb-4">Register</h1>
                   @if(session('error'))
                   <div class="alert alert-danger">
                       {{session('error')}}
@@ -28,7 +28,7 @@
 
                     <div class="form-group">
                         <input id="name" type="text"
-                        class="form-control form-control-user{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name"
+                        class="form-control rounded-pill form-control-user{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name"
                         value="{{ old('name') }}" placeholder="Nama lengkap" required autofocus>
                         @if ($errors->has('name'))
                         <span class="invalid-feedback">
@@ -79,7 +79,7 @@
 
                   </div>
 
-                <button type="submit" class="btn-block btn btn-primary btn-user">
+                <button type="submit" class="btn-block btn btn-primary btn-round">
                     {{ __('Register') }}
                 </button>
                             

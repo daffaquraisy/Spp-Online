@@ -17,11 +17,11 @@
         <div class="card shadow mb-4">
             <div class="card-body">
         <div class="table-responsive mt-3">
-        <table class="table table-bordered table-stripped">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th><b>Nama</b></th>
-                    <th><br>Nisn</th>
+                    <th><b>Nisn</b></th>
                     <th><b>Waktu Pembayaran</b></th>
                     <th><b>Jumlah</b></th>
                     <th><b>Status</b></th>
