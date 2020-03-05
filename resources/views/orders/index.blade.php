@@ -60,8 +60,9 @@
             <button id="submit" class="btn btn-primary mt-3 ml-2 ">Submit</button>
     
         </form>
-
-        <div class="table-responsive mt-3">
+        <div class="card shadow mb-4 mt-4">
+            <div class="card-body">
+    <div class="table-responsive mt-3">
         <table class="table table-bordered table-stripped">
             <thead>
                 <tr>
@@ -98,6 +99,8 @@
                 </tr>
             </tfoot>
         </table>
+    </div>
+            </div>
     </div>
     </div>
 </div>

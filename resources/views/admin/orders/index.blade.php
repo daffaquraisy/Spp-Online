@@ -14,7 +14,8 @@
         </div>
         @endif
 
-
+        <div class="card shadow mb-4">
+            <div class="card-body">
         <div class="table-responsive mt-3">
         <table class="table table-bordered table-stripped">
             <thead>
@@ -23,7 +24,8 @@
                     <th><br>Nisn</th>
                     <th><b>Waktu Pembayaran</b></th>
                     <th><b>Jumlah</b></th>
-                    <th><br>Status</th>
+                    <th><b>Status</b></th>
+                    <th><b>Action</b></th>
                 </tr>
             </thead>
             <tbody>
@@ -35,11 +37,11 @@
                     <td>{{$order->amount}}</td>
 
                     <td>{{ ucfirst($order->status) }}</td>
-                    {{-- <td style="text-align: center;">
+                    <td style="text-align: center;">
                         @if ($order->status == 'pending')
                         <button class="btn btn-success btn-sm" onclick="snap.pay('{{ $order->snap_token }}')">Complete Payment</button>
                         @endif
-                    </td> --}}
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
@@ -51,6 +53,8 @@
                 </tr>
             </tfoot>
         </table>
+        </div>
+            </div>
     </div>
     </div>
 </div>

@@ -30,6 +30,8 @@
             {{session('status')}}
         </div>
         @endif
+        <div class="card shadow mb-4">
+            <div class="card-body">
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -65,6 +67,8 @@
                 </tr>
             </tfoot>
         </table>
+            </div>
+        </div>
     </div>
 </div>
 
