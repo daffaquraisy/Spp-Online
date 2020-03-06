@@ -3,7 +3,7 @@
 @section("title") Users list @endsection
 @section("content")
 
-   <h1 class="p-0">Daftar Petugas</h1>
+   <h1 class="p-0">Daftar Users</h1>
 
    
    <form action="{{route('users.index')}}">

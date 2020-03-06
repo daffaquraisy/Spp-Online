@@ -51,11 +51,11 @@
                         <i class="icon-menu"></i>
                     </span>
                 </button>
-                <div class="nav-toggle">
+                {{-- <div class="nav-toggle">
                     <button class="btn btn-toggle toggle-sidebar">
                         <i class="icon-menu"></i>
                     </button>
-                </div>
+                </div> --}}
             </div>
             <!-- End Logo Header -->
 
