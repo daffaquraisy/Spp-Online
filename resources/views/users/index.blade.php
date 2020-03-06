@@ -40,6 +40,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-body">
+        <div class="table-responsive mt-3">
         <table id="basic-datatables" class="table table-bordered">
             <thead>
                 <tr>
@@ -91,6 +92,7 @@
                 </tr>
             </tfoot>
         </table>
+    </div>
     </div>
   </div>
 @endsection

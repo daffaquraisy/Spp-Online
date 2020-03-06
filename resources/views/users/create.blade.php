@@ -52,7 +52,7 @@
         <br>
 
             <div class="custom-control custom-checkbox small">
-              <input type="checkbox" class="custom-control-input mb-5{{$errors->first('level') ? "is-invalid" : "" }}" name="level[]"
+              <input type="checkbox" class="custom-control-input {{$errors->first('level') ? "is-invalid" : "" }}" name="level[]"
               id="ADMIN" value="ADMIN">
               <label class="custom-control-label" for="ADMIN">Admin</label>
             </div>
@@ -67,6 +67,7 @@
             {{$errors->first('level')}}
         </div>
         
+        <br>
         <br>
 
         <label for="password">Password</label>

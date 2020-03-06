@@ -9,13 +9,16 @@
 
     <!-- Fonts and icons -->
     <script src="{{asset('assets/js/plugin/webfont/webfont.min.js')}}"></script>
+
+    <link rel="stylesheet" href="{{asset('assets/css/fonts.min.css')}}">
+
     
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900&display=swap" rel="stylesheet">
-
+{{-- 
     <script>
         WebFont.load({
             google: {
-                "families": ["Lato:300,400,700,900"]
+                "families": ["Montserrat:300,400,700,900"]
             },
             custom: {
                 "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular",
@@ -27,7 +30,7 @@
                 sessionStorage.fonts = true;
             }
         });
-    </script>
+    </script> --}}
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">

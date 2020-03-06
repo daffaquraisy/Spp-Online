@@ -11,7 +11,7 @@
    </div>
 </div>
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md">
         @if(session('status'))
         <div class="alert alert-success mt-3">
             {{session('status')}}
