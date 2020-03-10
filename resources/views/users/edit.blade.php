@@ -41,17 +41,11 @@
 
         <label for="">Level</label>
         <br>
-        <div class="custom-control custom-checkbox small">
-            <input type="checkbox" {{$user->level == 'ADMIN' ? 'checked' : ''}} class="custom-control-input mb-5{{$errors->first('level') ? "is-invalid" : "" }}" name="level[]"
-            id="ADMIN" value="ADMIN">
-            <label class="custom-control-label" for="ADMIN">Admin</label>
-          </div>
-
-          <div class="custom-control custom-checkbox small">
-            <input type="checkbox" {{$user->level == 'PETUGAS' ? 'checked' : ''}} class="custom-control-input {{$errors->first('level') ? "is-invalid" : "" }}" name="level[]"
-            id="PETUGAS" value="PETUGAS">
-            <label class="custom-control-label" for="PETUGAS">Petugas</label>
-          </div>
+        <input type="checkbox" {{in_array("ADMIN", json_decode($user->level)) ? "checked" : ""}} name="level[]" class=" {{$errors->first('level') ? "is-invalid" : ""}}" id="ADMIN" value="ADMIN">
+        <label for="ADMIN">ADMIN</label>
+        <input type="checkbox" {{in_array("PETUGAS", json_decode($user->level)) ? "checked" : ""}} name="level[]" class=" {{$errors->first('level') ? "is-invalid" : ""}}" id="PETUGAS" value="PETUGAS">
+        <label for="PETUGAS">PETUGAS</label>
+        <br>
         <br>
 
         <input class="btn btn-primary" type="submit" value="Simpan" />
