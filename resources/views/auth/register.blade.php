@@ -79,7 +79,7 @@
 
                   </div>
 
-                <button type="submit" class="btn-block btn btn-primary btn-round">
+                <button type="submit" class="btn-block btn btn-primary">
                     {{ __('Register') }}
                 </button>
                             

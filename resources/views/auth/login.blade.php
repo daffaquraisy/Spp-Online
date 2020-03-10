@@ -50,9 +50,16 @@
 
                   </div>
 
-                <button type="submit" class="btn-block btn btn-primary btn-round">
+                <button type="submit" class="ml-2 btn btn-primary">
                         {{ __('Login') }}
                     </button>
+
+                    <hr>
+
+                    <a href="{{ route('register')}}" class="btn btn-google btn-user btn-block">
+                      <i class="fas fa-user fa-fw"></i> Create new Account !
+                    </a>
+
                             
 
                 </form>
