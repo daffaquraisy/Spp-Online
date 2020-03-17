@@ -124,7 +124,7 @@ class UserController extends Controller
 
 
         $user->save();
-        return redirect()->route('users.index', [$id])->with('level', 'Data petugas berhasil diubah');
+        return redirect()->route('users.index', [$id])->with('status', 'Data petugas berhasil diubah');
     }
 
     /**
