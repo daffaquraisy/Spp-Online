@@ -8,11 +8,11 @@
    
    <form action="{{route('users.index')}}">
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-5 mb-3">
             <input value="{{Request::get('username')}}" name="username" type="text" class="form-control"
                 placeholder="Search by username">
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 mb-3">
             <select name="level" class="form-control" id="level">
                 <option value="">ANY</option>
                 <option {{Request::get('level') == "ADMIN" ? "selected" : ""}} value="ADMIN">ADMIN</option>
@@ -21,7 +21,7 @@
             </select>
         </div>
         <div class="col-md-2">
-            <input type="submit" value="Filter" class="btn btn-primary">
+            <input type="submit" value="Filter" class="btn btn-default">
         </div>
     </div>
 </form>
@@ -34,7 +34,7 @@
 
 <div class="row mb-3">
     <div class="col-md-12 text-right">
-        <a href="{{route('users.create')}}" class="btn btn-primary">Tambah user</a>
+        <a href="{{route('users.create')}}" class="btn btn-default">Tambah user</a>
    </div>
 </div>
 

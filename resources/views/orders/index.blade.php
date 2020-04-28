@@ -57,7 +57,7 @@
             </div>
     
     
-            <button id="submit" class="btn btn-primary mt-3 ml-4 ">Submit</button>
+            <button id="submit" class="btn btn-default mt-3 ml-4 ">Submit</button>
     
         </form>
         <div class="card shadow mb-4 mt-4">

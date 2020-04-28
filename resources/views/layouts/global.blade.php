@@ -44,7 +44,7 @@
     <div class="wrapper">
         <div class="main-header">
             <!-- Logo Header -->
-            <div class="logo-header" data-background-color="blue">
+            <div class="logo-header" data-background-color="dark2">
 
                 <i class="fas fa-laptop fa-2x text-white"></i>
                 <h3 class="ml-3 mr-3 text-white"><b>SPP Online</b></h3>
@@ -54,16 +54,16 @@
                         <i class="icon-menu"></i>
                     </span>
                 </button>
-                {{-- <div class="nav-toggle">
-                    <button class="btn btn-toggle toggle-sidebar">
-                        <i class="icon-menu"></i>
-                    </button>
-                </div> --}}
+                <div class="nav-toggle">
+					<button class="btn btn-toggle toggle-sidebar">
+						<i class="icon-menu"></i>
+					</button>
+				</div>
             </div>
             <!-- End Logo Header -->
 
             <!-- Navbar Header -->
-            <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
+            <nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
 
                 <div class="container-fluid">
                     <div class="collapse" id="search-nav">
@@ -84,7 +84,7 @@
         </div>
 
         <!-- Sidebar -->
-        <div class="sidebar sidebar-style-2">
+        <div class="sidebar" data-background-color="dark2">
             <div class="sidebar-wrapper scrollbar scrollbar-inner">
                 <div class="sidebar-content">
                     <div class="user">
@@ -187,17 +187,7 @@
 
         <div class="main-panel mb-5">
             <div class="content">
-                {{-- <div class="panel-header bg-primary-gradient">
-                    <div class="page-inner py-5">
-                        <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
-                            <div>
-                                <h2 class="text-white pb-2 fw-bold">Dashboard</h2>
-                                <h5 class="text-white op-7 mb-2">Hello \Auth::user()->name</h5>
-                            </div>
 
-                        </div>
-                    </div> --}}
-                    
                 <div class="page-inner">
 
                     
@@ -233,6 +223,7 @@
 
 
             </div>
+
             <footer class="footer">
                 <div class="container-fluid">
 
@@ -242,7 +233,7 @@
                 </div>
             </footer>
         </div>
-    </div>
+    
     <!--   Core JS Files   -->
     <script src="{{asset('assets/js/core/jquery.3.2.1.min.js')}}"></script>
     <script src="{{asset('assets/js/core/popper.min.js')}}"></script>

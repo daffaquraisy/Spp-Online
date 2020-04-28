@@ -7,20 +7,20 @@
 
    <form action="{{route('classrooms.index')}}">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 mb-3">
             <input value="{{Request::get('nama_kelas')}}" name="nama_kelas" type="text" class="form-control"
                 placeholder="Search by nama kelas">
         </div>
         
         <div class="col-md-6">
-            <input type="submit" value="Filter" class="btn btn-primary">
+            <input type="submit" value="Filter" class="btn btn-default">
         </div>
     </div>
 </form>
 
 <div class="row mb-3">
     <div class="col-md-12 text-right">
-        <a href="{{route('classrooms.create')}}" class="btn btn-primary">Tambah kelas</a>
+        <a href="{{route('classrooms.create')}}" class="btn btn-default">Tambah kelas</a>
    </div>
 </div>
 <div class="row">

@@ -14,7 +14,7 @@
 
         <div class="row mb-3">
             <div class="col-md-12 text-right">
-                <a href="{{route('students.create')}}" class="btn btn-primary">Tambahkan data siswa</a>
+                <a href="{{route('students.create')}}" class="btn btn-default">Tambahkan data siswa</a>
             </div>
         </div>
 

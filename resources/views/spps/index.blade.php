@@ -7,7 +7,7 @@
 
 <div class="row mb-3">
     <div class="col-md-12 text-right">
-        <a href="{{route('spps.create')}}" class="btn btn-primary">Tambah spp</a>
+        <a href="{{route('spps.create')}}" class="btn btn-default">Tambah spp</a>
    </div>
 </div>
 <div class="row">
