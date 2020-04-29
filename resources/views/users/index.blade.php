@@ -6,25 +6,6 @@
    <h1 class="p-0">Daftar Petugas</h1>
 
    
-   <form action="{{route('users.index')}}">
-    <div class="row">
-        <div class="col-md-5">
-            <input value="{{Request::get('username')}}" name="username" type="text" class="form-control"
-                placeholder="Search by username">
-        </div>
-        <div class="col-md-2">
-            <select name="level" class="form-control" id="level">
-                <option value="">ANY</option>
-                <option {{Request::get('level') == "ADMIN" ? "selected" : ""}} value="ADMIN">ADMIN</option>
-                <option {{Request::get('level') == "PETUGAS" ? "selected" : ""}} value="PETUGAS">PETUGAS</option>
-                <option {{Request::get('level') == "SISWA" ? "selected" : ""}} value="SISWA">SISWA</option>
-            </select>
-        </div>
-        <div class="col-md-2">
-            <input type="submit" value="Filter" class="btn btn-primary">
-        </div>
-    </div>
-</form>
 
    @if(session('status'))
     <div class="alert alert-success mt-3">
@@ -33,9 +14,23 @@
     @endif
 
 <div class="row mb-3">
-    <div class="col-md-12 text-right">
+    <div class="col-md-12 text-right mb-3">
         <a href="{{route('users.create')}}" class="btn btn-primary">Tambah petugas</a>
    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <form action="{{route('users.index')}}">
+            <div class="input-group mb-3">
+                <input value="{{Request::get('keyword')}}" name="keyword" class="form-control col-md-10" type="text"
+                    placeholder="Cari nama user..." />
+                <div class="input-group-append">
+                    <input type="submit" value="Filter" class="btn btn-primary btn-sm">
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 <div class="card shadow mb-4">

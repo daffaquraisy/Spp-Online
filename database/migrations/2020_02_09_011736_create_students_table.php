@@ -22,8 +22,8 @@ class CreateStudentsTable extends Migration
             $table->string('no_telp');
             $table->bigInteger('id_kelas')->unsigned()->nullable();
             $table->bigInteger('id_spp')->unsigned()->nullable();
-            $table->foreign('id_kelas')->references('id')->on('kelas');
-            $table->foreign('id_spp')->references('id')->on('spp');
+            $table->foreign('id_kelas')->references('id')->on('kelas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_spp')->references('id')->on('spp')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
