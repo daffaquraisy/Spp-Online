@@ -19,9 +19,7 @@ class CreatePembayaranTable extends Migration
             $table->bigInteger('amount')->nullable();
             $table->string('status')->default('PENDING');
             $table->bigInteger('id_siswa')->unsigned()->nullable();
-            $table->foreign('id_siswa')->references('id')->on('siswa');
-            $table->bigInteger('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('id_siswa')->references('id')->on('siswa')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
