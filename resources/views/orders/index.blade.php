@@ -57,7 +57,7 @@
             </div>
     
     
-            <button id="submit" class="btn btn-default mt-3 ml-4 ">Submit</button>
+            <button id="submit" class="btn btn-dark mt-3 ml-4 ">Submit</button>
     
         </form>
         <div class="card shadow mb-4 mt-4">
@@ -84,7 +84,7 @@
 
                     <td>{{ ucfirst($order->status) }}</td>
                     <td style="text-align: center;">
-                        @if ($order->status == 'pending')
+                        @if ($order->status == 'PENDING')
                         <button class="btn btn-success btn-sm" onclick="snap.pay('{{ $order->snap_token }}')">Complete Payment</button>
                         @endif
                     </td>

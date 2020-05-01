@@ -31,9 +31,9 @@ class UserController extends Controller
         $keyword = $request->get('keyword') ? $request->get('keyword') : '';
 
         if ($level) {
-            $users = \App\User::where("level", "LIKE", "%$keyword%")->where('level', strtoupper($level))->paginate(10);
+            $users = \App\User::where("level", "LIKE", "%$keyword%")->where('level', strtoupper($level))->paginate(1);
         } else {
-            $users = \App\User::where("level", "LIKE", "%$keyword%")->paginate(10);
+            $users = \App\User::where("level", "LIKE", "%$keyword%")->paginate(1);
         }
 
         return view('users.index', ['users' => $users]);
@@ -58,18 +58,18 @@ class UserController extends Controller
     public function store(Request $request)
     {
         \Validator::make($request->all(), [
-            'email' => 'required|email',
             'username' => 'required|min:5',
-            'name' => 'required|min:10',
+            'name' => 'required',
             'level' => 'required',
             'password' => 'required',
-            'password_confirmation' => 'required|same:password'
+            'password_confirmation' => 'required|same:password',
+            'email' => 'required|unique:users'
         ])->validate();
 
         $new_user = new \App\User;
-        $new_user->email = $request->get('email');
         $new_user->username = $request->get('username');
         $new_user->name = $request->get('name');
+        $new_user->email = $request->get('email');
         $new_user->level = json_encode($request->get('level'));
         $new_user->password = Hash::make($request->get('password'));
 
@@ -112,13 +112,14 @@ class UserController extends Controller
     {
         \Validator::make($request->all(), [
             'username' => 'required|min:5',
-            'name' => 'required|min:10',
-            'level' => 'required'
+            'name' => 'required',
+            'level' => 'required',
+            'email' => 'required'
         ])->validate();
 
         $user = \App\User::findOrFail($id);
-        $user->email = $request->get('email');
         $user->username = $request->get('username');
+        $user->email = $request->get('email');
         $user->name = $request->get('name');
         $user->level = json_encode($request->get('level'));
 

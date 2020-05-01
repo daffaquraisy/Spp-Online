@@ -14,16 +14,10 @@
 
         <input type="hidden" value="PUT" name="_method">
 
-        
         <label for="email">Email</label>
-        <input value="{{old('email') ? old('email') : $user->email}}"
-            class="form-control {{$errors->first('email') ? "is-invalid" : ""}}" placeholder="user@email.com" type="text"
+        <input value="{{$user->email}}" class="form-control" placeholder="Masukan nama" type="text"
             name="email" id="email" />
-        <div class="invalid-feedback">
-            {{$errors->first('email')}}
-        </div>
         <br>
-
 
         <label for="username">Username</label>
         <input value="{{old('username') ? old('username') : $user->username}}"

@@ -35,7 +35,7 @@
         <!-- CSS Just for demo purpose, don't include it in your project -->
         <link rel="stylesheet" href="{{asset('assets/css/demo.css')}}">
     </head>
-<body style="background:#1572e8;">
+<body style="background:#1f283e;">
     <div class="container">
         @yield('content')
     </div>

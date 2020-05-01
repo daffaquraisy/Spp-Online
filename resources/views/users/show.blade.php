@@ -12,6 +12,12 @@
             <br>
             <br>
 
+            <b>Email:</b><br>
+            {{$user->email}}
+
+            <br>
+            <br>
+
             <b>Nama Petugas:</b> <br>
             {{$user->name}}
 

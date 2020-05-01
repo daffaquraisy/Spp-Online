@@ -50,14 +50,14 @@
 
                   </div>
 
-                <button type="submit" class="ml-2 btn btn-primary">
+                <button type="submit" class="ml-2 btn btn-dark">
                         {{ __('Login') }}
                     </button>
 
                     <hr>
 
-                    <a href="{{ route('register')}}" class="btn btn-google btn-user btn-block">
-                      <i class="fas fa-user fa-fw"></i> Create new Account !
+                    <a href="{{ route('register')}}" class="btn btn-google btn-user btn-block" style="color:1f283e;">
+                      <i class="fas fa-user fa-fw" style="color:#1f283e;"></i> Create new Account !
                     </a>
 
                             

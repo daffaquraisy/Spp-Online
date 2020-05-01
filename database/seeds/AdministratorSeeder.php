@@ -14,8 +14,8 @@ class AdministratorSeeder extends Seeder
     {
         $administrator = new \App\User;
         $administrator->username = "daffaquraisy";
-        $administrator->nama_petugas = "Daffa Quraisy";
-        $administrator->level = "ADMIN";
+        $administrator->name = "Daffa Quraisy";
+        $administrator->level = json_encode(["ADMIN"]);
         $administrator->password = Hash::make('12345678');
 
         $administrator->save();

@@ -47,17 +47,6 @@
                     </span>
                     @endif
                   </div>
-
-                  <div class="form-group">
-                    <input id="email" type="text"
-                    class="form-control form-control-user{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
-                    value="{{ old('email') }}" placeholder="user@email.com" required autofocus>
-                    @if ($errors->has('email'))
-                    <span class="invalid-feedback">
-                        <strong>{{ $errors->first('email') }}</strong>
-                    </span>
-                    @endif
-                  </div>
                   
                   <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
@@ -79,7 +68,7 @@
 
                   </div>
 
-                <button type="submit" class="btn-block btn btn-primary">
+                <button type="submit" class="btn-block btn btn-dark">
                     {{ __('Register') }}
                 </button>
                             

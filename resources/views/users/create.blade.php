@@ -15,11 +15,10 @@
     <form enctype="multipart/form-data" class="bg-white shadow-sm p-3" action="{{route('users.store')}}" method="POST">
 
         @csrf
-
         <label for="email">Email</label>
 
         <input value="{{old('email')}}" class="form-control {{$errors->first('email') ? "is-invalid": ""}}"
-            placeholder="user@email.com" type="email" name="email" id="email" />
+            placeholder="email" type="text" name="email" id="email" />
 
         <div class="invalid-feedback">
             {{$errors->first('email')}}
@@ -41,7 +40,7 @@
         <label for="name">Nama</label>
 
         <input value="{{old('name')}}" class="form-control {{$errors->first('name') ? "is-invalid": ""}}"
-            placeholder="Nama petugas" type="text" name="name" id="name">
+            placeholder="Nama" type="text" name="name" id="name">
 
         <div class="invalid-feedback">
             {{$errors->first('name')}}

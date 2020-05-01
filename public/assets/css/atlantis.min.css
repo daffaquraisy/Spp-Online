@@ -7649,15 +7649,15 @@ label.error {
 }
 
 .btn-primary {
-    background: #1572e8 !important;
-    border-color: #1572e8 !important
+    background: #1f283e !important;
+    border-color: #1f283e !important
 }
 
 .btn-primary:disabled,
 .btn-primary:focus,
 .btn-primary:hover {
-    background: #1572e8 !important;
-    border-color: #1572e8 !important
+    background: #1f283e !important;
+    border-color: #1f283e !important
 }
 
 .btn-secondary {
