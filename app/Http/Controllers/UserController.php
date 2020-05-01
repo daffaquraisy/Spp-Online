@@ -31,9 +31,9 @@ class UserController extends Controller
         $keyword = $request->get('keyword') ? $request->get('keyword') : '';
 
         if ($level) {
-            $users = \App\User::where("level", "LIKE", "%$keyword%")->where('level', strtoupper($level))->paginate(1);
+            $users = \App\User::where("level", "LIKE", "%$keyword%")->where('level', strtoupper($level))->paginate(10);
         } else {
-            $users = \App\User::where("level", "LIKE", "%$keyword%")->paginate(1);
+            $users = \App\User::where("level", "LIKE", "%$keyword%")->paginate(10);
         }
 
         return view('users.index', ['users' => $users]);
