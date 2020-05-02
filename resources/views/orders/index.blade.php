@@ -58,6 +58,9 @@
     
     
             <button id="submit" class="btn btn-primary mt-3 ml-4 ">Submit</button>
+            @can('manage-users', $user ?? '')
+            <a href="{{route('export.excel.orders')}}" class="btn btn-primary mt-3 ml-4"><i class="fas fa-file-excel-o"></i> Excel</a>
+            @endcan
     
         </form>
         <div class="card shadow mb-4 mt-4">

@@ -36,6 +36,7 @@ Route::resource('/students', 'StudentController');
 Route::post('/order/mine', 'OrderController@submitOrder')->name('orders.mine');
 Route::post('/notification/handler', 'OrderController@notificationHandler')->name('notification.handler');
 Route::get('/ajax/orders/search_nama', 'OrderController@ajaxSearchName');
+Route::get('/excel/orders', 'OrderController@exportExcel')->name('export.excel.orders');
 Route::resource('/orders', 'OrderController');
 
 Route::get('/admin/payment', 'AdminOrderController@index')->name('admin.payment');
