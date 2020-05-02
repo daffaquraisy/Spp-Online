@@ -38,7 +38,7 @@
 
                     <td>{{ ucfirst($order->status) }}</td>
                     <td style="text-align: center;">
-                        @if ($order->status == 'pending')
+                        @if ($order->status == 'PENDING')
                         <button class="btn btn-success btn-sm" onclick="snap.pay('{{ $order->snap_token }}')">Complete Payment</button>
                         @endif
                     </td>

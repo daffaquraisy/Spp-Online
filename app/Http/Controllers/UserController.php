@@ -27,9 +27,13 @@ class UserController extends Controller
     {
         $users = \App\User::paginate(10);
 
-        $filterKeyword = $request->get('keyword');
-        if ($filterKeyword) {
-            $users = \App\User::where('name', 'LIKE', "%$filterKeyword%")->paginate(10);
+        $level = $request->get('level');
+        $keyword = $request->get('keyword') ? $request->get('keyword') : '';
+
+        if ($level) {
+            $users = \App\User::where("level", "LIKE", "%$keyword%")->where('level', strtoupper($level))->paginate(10);
+        } else {
+            $users = \App\User::where("level", "LIKE", "%$keyword%")->paginate(10);
         }
 
         return view('users.index', ['users' => $users]);
@@ -54,23 +58,23 @@ class UserController extends Controller
     public function store(Request $request)
     {
         \Validator::make($request->all(), [
-            'email' => 'required|email',
             'username' => 'required|min:5',
-            'name' => 'required|min:10',
+            'name' => 'required',
             'level' => 'required',
             'password' => 'required',
-            'password_confirmation' => 'required|same:password'
+            'password_confirmation' => 'required|same:password',
+            'email' => 'required|unique:users'
         ])->validate();
 
         $new_user = new \App\User;
-        $new_user->email = $request->get('email');
         $new_user->username = $request->get('username');
         $new_user->name = $request->get('name');
+        $new_user->email = $request->get('email');
         $new_user->level = json_encode($request->get('level'));
         $new_user->password = Hash::make($request->get('password'));
 
         $new_user->save();
-        return redirect()->route('users.index')->with('status', 'Data petugas berhasil di tambahkan');
+        return redirect()->route('users.index')->with('status', 'Data user berhasil di tambahkan');
     }
 
     /**
@@ -108,19 +112,20 @@ class UserController extends Controller
     {
         \Validator::make($request->all(), [
             'username' => 'required|min:5',
-            'name' => 'required|min:10',
-            'level' => 'required'
+            'name' => 'required',
+            'level' => 'required',
+            'email' => 'required'
         ])->validate();
 
         $user = \App\User::findOrFail($id);
-        $user->email = $request->get('email');
         $user->username = $request->get('username');
+        $user->email = $request->get('email');
         $user->name = $request->get('name');
         $user->level = json_encode($request->get('level'));
 
 
         $user->save();
-        return redirect()->route('users.index', [$id])->with('status', 'Data petugas berhasil diubah');
+        return redirect()->route('users.index', [$id])->with('status', 'Data user berhasil diubah');
     }
 
     /**
@@ -134,6 +139,6 @@ class UserController extends Controller
         $user = \App\User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('users.index')->with('status', 'Data petugas berhasil dihapus');
+        return redirect()->route('users.index')->with('status', 'Data user berhasil dihapus');
     }
 }

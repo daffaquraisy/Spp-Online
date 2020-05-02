@@ -41,7 +41,7 @@
         <label for="name">Nama</label>
 
         <input value="{{old('name')}}" class="form-control {{$errors->first('name') ? "is-invalid": ""}}"
-            placeholder="Nama petugas" type="text" name="name" id="name">
+            placeholder="Nama" type="text" name="name" id="name">
 
         <div class="invalid-feedback">
             {{$errors->first('name')}}

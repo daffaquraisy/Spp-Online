@@ -35,7 +35,7 @@
         <br>
 
         <label for="name">Nama</label>
-        <input value="{{$user->name}}" class="form-control" placeholder="Nama petugas" type="text"
+        <input value="{{$user->name}}" class="form-control" placeholder="Nama" type="text"
             name="name" id="name" />
         <br>
 

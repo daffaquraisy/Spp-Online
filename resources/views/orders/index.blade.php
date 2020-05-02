@@ -31,10 +31,10 @@
                 </div>
     
     
-                <div class="col-md-4">
+                <div class="col-md-4 ml-2">
     
                     <!-- Prepended text-->
-                    <label for="">Amount</label>
+                    <label control-label for="">Amount</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Rp</span>
@@ -45,7 +45,7 @@
                 </div>
 
                 <!-- Select Basic -->
-                <div class="col-md-4 mt-3">
+                <div class="col-md-4">
                 <div class="form-group">
                     <label class="control-label" for="donation_type">Type</label>
                     <div>
@@ -57,7 +57,7 @@
             </div>
     
     
-            <button id="submit" class="btn btn-primary mt-3 ml-2 ">Submit</button>
+            <button id="submit" class="btn btn-primary mt-3 ml-4 ">Submit</button>
     
         </form>
         <div class="card shadow mb-4 mt-4">
@@ -84,7 +84,7 @@
 
                     <td>{{ ucfirst($order->status) }}</td>
                     <td style="text-align: center;">
-                        @if ($order->status == 'pending')
+                        @if ($order->status == 'PENDING')
                         <button class="btn btn-success btn-sm" onclick="snap.pay('{{ $order->snap_token }}')">Complete Payment</button>
                         @endif
                     </td>
@@ -125,7 +125,6 @@
             }
         }
     });
-
 </script>
 @endsection
 
@@ -146,7 +145,6 @@
             amount: $('input#amount').val(),
             id_siswa: $('select#nama').val(),
             type: $('select#type').val(),
-
         },
         function (data, status) {
             snap.pay(data.snap_token, {

@@ -54,6 +54,11 @@
                         {{ __('Login') }}
                     </button>
                             
+                    <hr>
+
+                    <a href="{{ route('register')}}" class="btn btn-google btn-user btn-block" style="color:1f283e;">
+                      <i class="fas fa-user fa-fw" ></i> Create new Account !
+                    </a>
 
                 </form>
 
