@@ -106,8 +106,8 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         \Validator::make($request->all(), [
-            'nisn' => 'required|unique',
-            'nis' => 'required|unique',
+            'nisn' => 'required',
+            'nis' => 'required',
             'nama' => 'required',
             'alamat' => 'required',
             'no_telp' => 'required|numeric|digits_between:11,13'
