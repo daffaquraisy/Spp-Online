@@ -37,6 +37,17 @@
                         @endif
                       </div>
 
+                      <div class="form-group">
+                        <input id="email" type="text"
+                        class="form-control form-control-user{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
+                        value="{{ old('email') }}" placeholder="Email" required autofocus>
+                        @if ($errors->has('email'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                        @endif
+                      </div>
+
                   <div class="form-group">
                     <input id="username" type="text"
                     class="form-control form-control-user{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username"

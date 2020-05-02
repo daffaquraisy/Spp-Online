@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PembayaranReport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Veritrans_Config;
 use Veritrans_Snap;
 use Veritrans_Notification;
+use Excel;
+
 
 class OrderController extends Controller
 {
@@ -238,5 +241,11 @@ class OrderController extends Controller
         $students = \App\Student::where("nama", "LIKE", "%$keyword%")->get();
 
         return $students;
+    }
+
+    public function exportExcel()
+    {
+        $nama_file = 'Data Pembayaran ' . date('Y-m-d_H-i-s') . '.xlsx';
+        return Excel::download(new PembayaranReport, $nama_file);
     }
 }

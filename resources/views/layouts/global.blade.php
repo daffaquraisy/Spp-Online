@@ -54,11 +54,11 @@
                         <i class="icon-menu"></i>
                     </span>
                 </button>
-                <div class="nav-toggle">
+                {{-- <div class="nav-toggle">
 					<button class="btn btn-toggle toggle-sidebar">
 						<i class="icon-menu"></i>
 					</button>
-				</div>
+				</div> --}}
             </div>
             <!-- End Logo Header -->
 
@@ -158,11 +158,11 @@
                             <span>Manage Siswa</span></a>
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{route('admin.payment')}}">
                             <i class="fas fa-fw fa-file-invoice"></i>
                             <span>Manage Pembayaran</span></a>
-                        </li>
+                        </li> --}}
                         @endcan
 
                         <li class="nav-item">
