@@ -135,7 +135,7 @@ class OrderController extends Controller
 
     public function index()
     {
-        $orders = \App\Order::with('students')->paginate(10);
+        $orders = \App\Order::with('students')->orderBy('waktu_pembayaran', 'DESC')->paginate(10);
         return view('orders.index', ['orders' => $orders]);
     }
 
