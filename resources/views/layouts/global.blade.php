@@ -1,263 +1,377 @@
+<!--
+=========================================================
+Material Dashboard - v2.1.2
+=========================================================
+
+Product Page: https://www.creative-tim.com/product/material-dashboard
+Copyright 2020 Creative Tim (https://www.creative-tim.com)
+Coded by Creative Tim
+
+=========================================================
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>SPP @yield('title')</title>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        SPP @yield('title')
+    </title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <link rel="icon" href="{{asset('assets/img/icon.ico')}}" type="image/x-icon" />
-
-    <!-- Fonts and icons -->
-    <script src="{{asset('assets/js/plugin/webfont/webfont.min.js')}}"></script>
-
-    <link rel="stylesheet" href="{{asset('assets/css/fonts.min.css')}}">
-
-    
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900&display=swap" rel="stylesheet">
-{{-- 
-    <script>
-        WebFont.load({
-            google: {
-                "families": ["Montserrat:300,400,700,900"]
-            },
-            custom: {
-                "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular",
-                    "Font Awesome 5 Brands", "simple-line-icons"
-                ],
-                urls: ['../assets/css/fonts.min.css']
-            },
-            active: function () {
-                sessionStorage.fonts = true;
-            }
-        });
-    </script> --}}
-
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/atlantis.min.css')}}">
-
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="{{asset('assets/css/demo.css')}}">
+    <link href="{{asset('assets/css/material-dashboard.css')}}" rel="stylesheet" />
 </head>
 
-<body>
-    <div class="wrapper">
-        <div class="main-header">
-            <!-- Logo Header -->
-            <div class="logo-header" data-background-color="dark2">
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
-                <i class="fas fa-laptop fa-2x text-white"></i>
-                <h3 class="ml-3 mr-3 text-white"><b>SPP Online</b></h3>
-                <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
-                    data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon">
-                        <i class="icon-menu"></i>
-                    </span>
-                </button>
-                {{-- <div class="nav-toggle">
-					<button class="btn btn-toggle toggle-sidebar">
-						<i class="icon-menu"></i>
-					</button>
-				</div> --}}
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="logo"><a href="#" class="simple-text logo-normal">
+                    SPP
+                </a></div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    
+                    @can('manage-users', $user ?? '')
+
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{route('users.index')}}">
+                        <i class="fas fa-fw fa-users"></i>
+                        <span>Manage Users</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('classrooms.index')}}">
+                        <i class="fas fa-fw fa-school"></i>
+                        <span>Manage Kelas</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('spps.index')}}">
+                        <i class="fas fa-fw fa-list"></i>
+                        <span>Manage Spp</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('students.index')}}">
+                        <i class="fas fa-fw fa-graduation-cap"></i>
+                        <span>Manage Siswa</span></a>
+                    </li>
+                    @endcan
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('orders.index')}}">
+                        <i class="fas fa-fw fa-file-invoice"></i>
+                        <span>Pembayaran</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-fw fa-sign-out-alt "></i>
+                            <span>Logout</span>
+                        </a>
+
+                    </li>
+
+                </ul>
             </div>
-            <!-- End Logo Header -->
-
-            <!-- Navbar Header -->
-            <nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
-
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                 <div class="container-fluid">
-                    <div class="collapse" id="search-nav">
-                        <form class="navbar-left navbar-form nav-search mr-md-3">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <button type="submit" class="btn btn-search pr-1">
-                                        <i class="fa fa-search search-icon"></i>
-                                    </button>
-                                </div>
-                                <input type="text" placeholder="Search ..." class="form-control">
-                            </div>
-                        </form>
-                    </div>
+                    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                    </button>
+
                 </div>
             </nav>
             <!-- End Navbar -->
-        </div>
-
-        <!-- Sidebar -->
-        <div class="sidebar" data-background-color="dark2">
-            <div class="sidebar-wrapper scrollbar scrollbar-inner">
-                <div class="sidebar-content">
-                    <div class="user">
-                        {{-- <div class="avatar-sm float-left mr-2">
-                            <img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
-                        </div> --}}
-                        <div class="info">
-                            <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
-                                <span>
-                                    {{Auth::user()->name}}
-                                    <span class="user-level">Online</span>
-                                </span>
-                            </a>
-                            <div class="clearfix"></div>
-
-
-                        </div>
-                    </div>
-                    <ul class="nav nav-primary">
-                        {{-- <li class="nav-item active">
-                            <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
-                                <i class="fas fa-home"></i>
-                                <p>Dashboard</p>
-                                <span class="caret"></span>
-                            </a>
-                            <div class="collapse" id="dashboard">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a href="../demo1/index.html">
-                                            <span class="sub-item">Dashboard 1</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="../demo2/index.html">
-                                            <span class="sub-item">Dashboard 2</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li> --}}
-
-                        <li class="nav-section">
-                            <span class="sidebar-mini-icon">
-                                <i class="fa fa-ellipsis-h"></i>
-                            </span>
-                            <h4 class="text-section">Menu</h4>
-                        </li>
-                        @can('manage-users', $user ?? '')
-
-                        <li class="nav-item">
-                        <a class="nav-link" href="{{route('users.index')}}">
-                            <i class="fas fa-fw fa-users"></i>
-                            <span>Manage Users</span></a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('classrooms.index')}}">
-                            <i class="fas fa-fw fa-school"></i>
-                            <span>Manage Kelas</span></a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('spps.index')}}">
-                            <i class="fas fa-fw fa-list"></i>
-                            <span>Manage Spp</span></a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('students.index')}}">
-                            <i class="fas fa-fw fa-graduation-cap"></i>
-                            <span>Manage Siswa</span></a>
-                        </li>
-
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.payment')}}">
-                            <i class="fas fa-fw fa-file-invoice"></i>
-                            <span>Manage Pembayaran</span></a>
-                        </li> --}}
-                        @endcan
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('orders.index')}}">
-                            <i class="fas fa-fw fa-file-invoice"></i>
-                            <span>Pembayaran</span></a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
-                                <i class="fas fa-fw fa-sign-out-alt "></i>
-                                <span>Logout</span>
-                            </a>
-
-                        </li>
-
-                    </ul>
+            <div class="content">
+                <div class="container-fluid">
+                    @yield('content')
                 </div>
             </div>
-        </div>
-        <!-- End Sidebar -->
 
-        <div class="main-panel mb-5">
-            <div class="content">
-
-                <div class="page-inner">
-
-                    
-
-                    @yield('content')
-
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="button" data-dismiss="modal">Cancel</button>
+                    <form action="{{route("logout")}}" method="POST">
+                    @csrf
+                    <button class="btn btn-primary" style="cursor:pointer">Sign Out</button>
+                </form>
                 </div>
                 </div>
-
-
-                <!-- Logout Modal-->
-                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-default" type="button" data-dismiss="modal">Cancel</button>
-                        <form action="{{route("logout")}}" method="POST">
-                        @csrf
-                        <button class="btn btn-primary" style="cursor:pointer">Sign Out</button>
-                    </form>
-                    </div>
-                    </div>
-                </div>
-                </div>
-
-
+            </div>
             </div>
 
             <footer class="footer">
                 <div class="container-fluid">
-
-                    <div class="copyright ml-auto">
-                        Copyright © Uji Kompetensi 2020
+                    <nav class="float-left">
+                        <ul>
+                            <li>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="copyright float-right">
+                        &copy; Copyright Ujikom 2020
                     </div>
                 </div>
             </footer>
         </div>
-    
+    </div>
+
     <!--   Core JS Files   -->
-    <script src="{{asset('assets/js/core/jquery.3.2.1.min.js')}}"></script>
+    <script src="https://kit.fontawesome.com/20e16e5617.js"></script>
+    <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
     <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
-    <script src="{{asset('assets/js/core/bootstrap.min.js')}}"></script>
-    {{-- <script src="https://kit.fontawesome.com/20e16e5617.js"></script> --}}
-
-
-    <!-- jQuery UI -->
-    <script src="{{asset('assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js')}}"></script>
-    <script src="{{asset('assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js')}}"></script>
-
-    <!-- jQuery Scrollbar -->
-    <script src="{{asset('assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js')}}"></script>
-
-
-    <!-- Atlantis JS -->
-    <script src="{{asset('assets/js/atlantis.min.js')}}"></script>
-
-    <!-- Atlantis DEMO methods, don't include it in your project! -->
-    <script src="{{asset('assets/js/setting-demo.js')}}"></script>
-    <script src="{{asset('assets/js/demo.js')}}"></script>
-
+    <script src="{{asset('assets/js/core/bootstrap-material-design.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
+    <!-- Plugin for the momentJs  -->
+    <script src="{{asset('assets/js/plugins/moment.min.js')}}"></script>
+    <!--  Plugin for Sweet Alert -->
+    <script src="{{asset('assets/js/plugins/sweetalert2.js')}}"></script>
+    <!-- Forms Validations Plugin -->
+    <script src="{{asset('assets/js/plugins/jquery.validate.min.js')}}"></script>
+    <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+    <script src="{{asset('assets/js/plugins/jquery.bootstrap-wizard.js')}}"></script>
+    <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+    <script src="{{asset('assets/js/plugins/bootstrap-selectpicker.js')}}"></script>
+    <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+    <script src="{{asset('assets/js/plugins/bootstrap-datetimepicker.min.js')}}"></script>
+    <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+    <script src="{{asset('assets/js/plugins/jquery.dataTables.min.js')}}"></script>
+    <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+    <script src="{{asset('assets/js/plugins/bootstrap-tagsinput.js')}}"></script>
+    <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+    <script src="{{asset('assets/js/plugins/jasny-bootstrap.min.js')}}"></script>
+    <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+    <script src="{{asset('assets/js/plugins/fullcalendar.min.js')}}"></script>
+    <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+    <script src="{{asset('assets/js/plugins/jquery-jvectormap.js')}}"></script>
+    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="{{asset('assets/js/plugins/nouislider.min.js')}}"></script>
+    <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+    <!-- Library for adding dinamically elements -->
+    <script src="{{asset('assets/js/plugins/arrive.min.js')}}"></script>
+    <!-- Chartist JS -->
+    <script src="{{asset('assets/js/plugins/chartist.min.js')}}"></script>
+    <!--  Notifications Plugin    -->
+    <script src="{{asset('assets/js/plugins/bootstrap-notify.js')}}"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="{{asset('assets/js/material-dashboard.js?v=2.1.2" type="text/javascript')}}"></script>
     @yield('footer-scripts')
     @yield('snap-js')
+
+
+    <script>
+        $(document).ready(function () {
+            $().ready(function () {
+                $sidebar = $('.sidebar');
+
+                $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+                $full_page = $('.full-page');
+
+                $sidebar_responsive = $('body > .navbar-collapse');
+
+                window_width = $(window).width();
+
+                fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+                if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+                    if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+                        $('.fixed-plugin .dropdown').addClass('open');
+                    }
+
+                }
+
+                $('.fixed-plugin a').click(function (event) {
+                    // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+                    if ($(this).hasClass('switch-trigger')) {
+                        if (event.stopPropagation) {
+                            event.stopPropagation();
+                        } else if (window.event) {
+                            window.event.cancelBubble = true;
+                        }
+                    }
+                });
+
+                $('.fixed-plugin .active-color span').click(function () {
+                    $full_page_background = $('.full-page-background');
+
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+
+                    var new_color = $(this).data('color');
+
+                    if ($sidebar.length != 0) {
+                        $sidebar.attr('data-color', new_color);
+                    }
+
+                    if ($full_page.length != 0) {
+                        $full_page.attr('filter-color', new_color);
+                    }
+
+                    if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.attr('data-color', new_color);
+                    }
+                });
+
+                $('.fixed-plugin .background-color .badge').click(function () {
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+
+                    var new_color = $(this).data('background-color');
+
+                    if ($sidebar.length != 0) {
+                        $sidebar.attr('data-background-color', new_color);
+                    }
+                });
+
+                $('.fixed-plugin .img-holder').click(function () {
+                    $full_page_background = $('.full-page-background');
+
+                    $(this).parent('li').siblings().removeClass('active');
+                    $(this).parent('li').addClass('active');
+
+
+                    var new_image = $(this).find("img").attr('src');
+
+                    if ($sidebar_img_container.length != 0 && $(
+                            '.switch-sidebar-image input:checked').length != 0) {
+                        $sidebar_img_container.fadeOut('fast', function () {
+                            $sidebar_img_container.css('background-image', 'url("' +
+                                new_image + '")');
+                            $sidebar_img_container.fadeIn('fast');
+                        });
+                    }
+
+                    if ($full_page_background.length != 0 && $(
+                            '.switch-sidebar-image input:checked').length != 0) {
+                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find(
+                            'img').data('src');
+
+                        $full_page_background.fadeOut('fast', function () {
+                            $full_page_background.css('background-image', 'url("' +
+                                new_image_full_page + '")');
+                            $full_page_background.fadeIn('fast');
+                        });
+                    }
+
+                    if ($('.switch-sidebar-image input:checked').length == 0) {
+                        var new_image = $('.fixed-plugin li.active .img-holder').find("img")
+                            .attr('src');
+                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find(
+                            'img').data('src');
+
+                        $sidebar_img_container.css('background-image', 'url("' + new_image +
+                            '")');
+                        $full_page_background.css('background-image', 'url("' +
+                            new_image_full_page + '")');
+                    }
+
+                    if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+                    }
+                });
+
+                $('.switch-sidebar-image input').change(function () {
+                    $full_page_background = $('.full-page-background');
+
+                    $input = $(this);
+
+                    if ($input.is(':checked')) {
+                        if ($sidebar_img_container.length != 0) {
+                            $sidebar_img_container.fadeIn('fast');
+                            $sidebar.attr('data-image', '#');
+                        }
+
+                        if ($full_page_background.length != 0) {
+                            $full_page_background.fadeIn('fast');
+                            $full_page.attr('data-image', '#');
+                        }
+
+                        background_image = true;
+                    } else {
+                        if ($sidebar_img_container.length != 0) {
+                            $sidebar.removeAttr('data-image');
+                            $sidebar_img_container.fadeOut('fast');
+                        }
+
+                        if ($full_page_background.length != 0) {
+                            $full_page.removeAttr('data-image', '#');
+                            $full_page_background.fadeOut('fast');
+                        }
+
+                        background_image = false;
+                    }
+                });
+
+                $('.switch-sidebar-mini input').change(function () {
+                    $body = $('body');
+
+                    $input = $(this);
+
+                    if (md.misc.sidebar_mini_active == true) {
+                        $('body').removeClass('sidebar-mini');
+                        md.misc.sidebar_mini_active = false;
+
+                        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+                    } else {
+
+                        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+                        setTimeout(function () {
+                            $('body').addClass('sidebar-mini');
+
+                            md.misc.sidebar_mini_active = true;
+                        }, 300);
+                    }
+
+                    // we simulate the window Resize so the charts will get updated in realtime.
+                    var simulateWindowResize = setInterval(function () {
+                        window.dispatchEvent(new Event('resize'));
+                    }, 180);
+
+                    // we stop the simulation of Window Resize after the animations are completed
+                    setTimeout(function () {
+                        clearInterval(simulateWindowResize);
+                    }, 1000);
+
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
